@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListarSeriesComponent } from './listar-series/listar-series.component';
 import { SeriesService } from './series.service';
+import { DetalleSeriesComponent } from './detalle-series/detalle-series.component';
 
 
 
@@ -11,7 +12,7 @@ import { SeriesService } from './series.service';
     CommonModule
   ],
   declarations: [
-    ListarSeriesComponent
+    ListarSeriesComponent, DetalleSeriesComponent
   ],
   exports: [
     ListarSeriesComponent]

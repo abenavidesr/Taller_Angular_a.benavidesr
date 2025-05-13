@@ -1,28 +1,36 @@
+
+
 <div class="container-fluid">
-  <div class="col-6">
-    <table class="table">
-      <thead>
-        <tr>
-          <th class="h4"> #</th>
-          <th class="h4">Name</th>
-          <th class="h4">Channel</th>
-          <th class="h4">Seasons</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let serie of series">
-          <td>{{ serie.id }}</td>
-          <td>{{ serie.name }}</td>
-          <td>{{ serie.channel }}</td>
-          <td>{{ serie.seasons }}</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td colspan = "4">Promedio temporadas</td>
-          <td>{{ getPromedioTemporadas() }}</td>
-        </tr>
-      </tfoot>
-    </table>
+  <div class="row">
+    
+    <div class="col-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="h4"> #</th>
+            <th class="h4">Name</th>
+            <th class="h4">Channel</th>
+            <th class="h4">Seasons</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let serie of series" (click) = "onSelect(serie)">
+            <td>{{ serie.id }}</td>
+            <td>{{ serie.name }}</td>
+            <td>{{ serie.channel }}</td>
+            <td>{{ serie.seasons }}</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan = "4">Promedio temporadas</td>
+            <td>{{ getPromedioTemporadas() }}</td>
+          </tr>
+        </tfoot>
+      </table>
+  </div>
+  <div *ngIf="selected" class = "col-6">
+    <app-detalle-series [detalleSerie]= "selectedSerie" ></app-detalle-series>
+  </div>
   </div>
 </div>

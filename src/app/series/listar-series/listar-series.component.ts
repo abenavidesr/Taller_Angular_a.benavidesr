@@ -11,6 +11,8 @@ import { SeriesService } from '../series.service';
 export class ListarSeriesComponent implements OnInit {
 
   series: Array<Series> = [];
+  selected: Boolean = false;
+  selectedSerie!: Series;
   constructor(private seriesService: SeriesService) { }
 
   getSeries() {
@@ -32,6 +34,11 @@ export class ListarSeriesComponent implements OnInit {
   ngOnInit() {
     this.getSeries();
     this.getPromedioTemporadas();
+  }
+
+  onSelect(serie: Series): void {
+    this.selected = true;
+    this.selectedSerie = serie;
   }
 
 }
