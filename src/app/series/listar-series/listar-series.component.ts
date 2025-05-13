@@ -19,8 +19,19 @@ export class ListarSeriesComponent implements OnInit {
     });
   }
 
+  getPromedioTemporadas(): number {
+    if (this.series.length === 0) {
+      return 0;}
+    var totalTemporadas = 0;
+    for (let i = 0; i < this.series.length; i++) {
+      totalTemporadas += this.series[i].seasons;
+    }
+    return totalTemporadas / this.series.length;
+  }
+
   ngOnInit() {
     this.getSeries();
+    this.getPromedioTemporadas();
   }
 
 }
